@@ -1,3 +1,7 @@
+require 'multicolor/rest/endpoints/filepath'
+require 'multicolor/rest/endpoints/indexing'
+require 'multicolor/rest/endpoints/metadata'
+
 module Multicolor
   module REST
     class Transport

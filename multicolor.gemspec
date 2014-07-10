@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "faraday_middleware"
   spec.add_dependency "active_support"
   spec.add_dependency "i18n"
+  spec.add_dependency "json"
 
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "codeclimate-test-reporter"
