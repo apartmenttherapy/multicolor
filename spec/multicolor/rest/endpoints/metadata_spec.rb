@@ -11,8 +11,8 @@ describe Multicolor::REST::Endpoints::Filepath do
 
   describe '#get_search_metadata' do
     it 'makes a get request' do
-      subject
-        .should_receive(:get)
+      expect(subject)
+        .to receive(:get)
         .with(:get_search_metadata)
       subject.send(:get_search_metadata)
     end
@@ -20,8 +20,8 @@ describe Multicolor::REST::Endpoints::Filepath do
 
   describe '#get_return_metadata' do
     it 'makes a get request' do
-      subject
-        .should_receive(:get)
+      expect(subject)
+        .to receive(:get)
         .with(:get_return_metadata)
       subject.send(:get_return_metadata)
     end
@@ -29,8 +29,8 @@ describe Multicolor::REST::Endpoints::Filepath do
 
   describe '#count' do
     it 'makes a get request' do
-      subject
-        .should_receive(:get)
+      expect(subject)
+        .to receive(:get)
         .with(:count)
       subject.send(:count)
     end
@@ -38,8 +38,8 @@ describe Multicolor::REST::Endpoints::Filepath do
 
   describe '#list' do
     it 'makes a get request' do
-      subject
-        .should_receive(:get)
+      expect(subject)
+        .to receive(:get)
         .with(:list)
       subject.send(:list)
     end
@@ -47,8 +47,8 @@ describe Multicolor::REST::Endpoints::Filepath do
 
   describe '#ping' do
     it 'makes a get request' do
-      subject
-        .should_receive(:get)
+      expect(subject)
+        .to receive(:get)
         .with(:ping)
       subject.send(:ping)
     end

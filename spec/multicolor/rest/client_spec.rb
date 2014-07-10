@@ -14,12 +14,12 @@ describe Multicolor::REST::Client do
       let(:transport) { double('Transport') }
 
       before do
-        Multicolor::REST::Transport.stub(:new).and_return(transport)
+        allow(Multicolor::REST::Transport).to receive(:new).and_return(transport)
       end
 
       it 'delegates' do
         delegated.each do |method|
-          transport.should_receive(method)
+          expect(transport).to receive(method)
           expect(subject.respond_to?(:method)).to eq(true)
           subject.send(method)
         end
@@ -35,14 +35,14 @@ describe Multicolor::REST::Client do
 
   describe '#transport' do
     it 'should initialize a transport object' do
-      Multicolor::REST::Transport.should_receive(:new)
+      expect(Multicolor::REST::Transport).to receive(:new)
       subject.send(:transport)
     end
   end
 
   describe '#config' do
     it 'should initialize a configuration object' do
-      Multicolor::Configuration.should_receive(:new)
+      expect(Multicolor::Configuration).to receive(:new)
       subject.config
     end
   end
