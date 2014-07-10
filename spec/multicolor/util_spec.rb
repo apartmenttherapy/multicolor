@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Multicolor::Util do
   subject { Multicolor::Util }
 
-  let(:params) {
+  let(:params) do
     { poop: "haha", filepaths: [:first, :second, :third] }
-  }
+  end
 
   let(:output) {
     {

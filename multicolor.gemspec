@@ -18,9 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday"
+  spec.add_dependency "faraday", ">= 0.8.9"
   spec.add_dependency "faraday_middleware"
-  spec.add_dependency "active_support"
+  spec.add_dependency "activesupport"
   spec.add_dependency "i18n"
   spec.add_dependency "json"
 
