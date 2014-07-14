@@ -12,6 +12,12 @@ describe Multicolor::Configuration do
     end
   end
 
+  describe '#authenticate?' do
+    it 'is true' do
+      expect(subject.authenticate?).to eq(true)
+    end
+  end
+
   describe '#open_timeout' do
     it 'defaults to 40' do
       expect(subject.open_timeout).to eq(40)
