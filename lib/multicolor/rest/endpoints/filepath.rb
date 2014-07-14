@@ -16,7 +16,7 @@ module Multicolor
         end
 
         def update_metadata(payload)
-
+          post(:update_metadata, Multicolor::Util.payload_builder(payload))
         end
       end
     end

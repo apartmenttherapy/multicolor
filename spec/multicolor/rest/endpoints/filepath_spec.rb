@@ -29,11 +29,21 @@ describe Multicolor::REST::Endpoints::Filepath do
   end
 
   describe '#get_metadata' do
-    it 'makes a post request' do
+    it 'makes a get request' do
       expect(subject)
         .to receive(:get)
        .with(:get_metadata, { "filepaths[0]" => "huh" })
       subject.send(:get_metadata, "huh")
+    end
+  end
+
+  describe '#update_metadata' do
+    it 'makes a post request' do
+      expect(subject)
+        .to receive(:post)
+        .with(:update_metadata, { })
+
+      subject.send(:update_metadata, [])
     end
   end
 end
