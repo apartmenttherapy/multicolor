@@ -86,10 +86,15 @@ response.body # returns API response
 
 ```ruby
 
-client.extract_collection_colors
+# extract colors for n images identified by filepath
+options = {
+  filepaths: [filepath_string, another_filepath_string]
+  limit: 20
+}
+client.extract_collection_colors(options)
 
-
-client.get_metadata
+# extract metadata for n images
+client.get_metadata(filepaths: [filepath_string])
 ```
 
 ### Info
