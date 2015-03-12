@@ -33,7 +33,7 @@ describe Multicolor::REST::Endpoints::Filepath do
       expect(subject)
         .to receive(:get)
        .with(:get_metadata, { "filepaths[0]" => "huh" })
-      subject.send(:get_metadata, "huh")
+      subject.send(:get_metadata, { filepaths: ["huh"] })
     end
   end
 

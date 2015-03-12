@@ -11,8 +11,9 @@ module Multicolor
           get(:extract_collection_colors, Multicolor::Util.filepaths(filepaths).merge(options))
         end
 
-        def get_metadata(filepaths)
-          get(:get_metadata, Multicolor::Util.filepaths(filepaths))
+        def get_metadata(options)
+          filepaths = options.delete(:filepaths)
+          get(:get_metadata, Multicolor::Util.filepaths(filepaths).merge(options))
         end
 
         def update_metadata(payload)
