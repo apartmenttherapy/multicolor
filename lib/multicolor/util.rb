@@ -34,6 +34,17 @@ module Multicolor
         end
         data
       end
+
+      def modify_options_for_keys(options, keys)
+        options.symbolize_keys!
+
+        keys.each do |key|
+          to_process = options.delete(key)
+          options.merge!(payload_builder(to_process))
+        end
+
+        options
+      end
     end
   end
 end

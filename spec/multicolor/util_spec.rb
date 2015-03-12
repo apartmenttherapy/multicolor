@@ -94,5 +94,39 @@ describe Multicolor::Util do
         expect(output["metadata[2]"]).to_not eq(nil)
       end
     end
+
+    describe '.modify_options_for_keys' do
+      let(:data) do
+        {
+          key_to_modify: [
+            {
+              thing: 1,
+              other: 2
+            },
+            {
+              thing: 2,
+              other: 3
+            }
+          ],
+          another_key_to_modify: [
+            { change: :yes },
+            { change: :oh_yeah }
+          ],
+          cant_touch: :this,
+          please_hammer: :dont_hurt_em
+        }
+      end
+
+      let(:modifiable_keys) { [:key_to_modify, :another_key_to_modify] }
+
+      it 'transforms a hash of arrays into array indexed param parts for specified keys' do
+        transformed = subject.modify_options_for_keys(data, modifiable_keys)
+        expect((transformed.keys & modifiable_keys).count).to eq(0)
+        expect((transformed.keys & ["things[0]", "things[1]"]).count).to eq(2)
+        expect((transformed.keys & ["others[0]", "others[1]"]).count).to eq(2)
+        expect((transformed.keys & ["changes[0]", "changes[1]"]).count).to eq(2)
+      end
+    end
+
   end
 end

@@ -1,3 +1,3 @@
 module Multicolor
-  VERSION = "0.0.3"
+  VERSION = "0.1.1"
 end
