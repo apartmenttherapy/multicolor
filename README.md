@@ -21,6 +21,16 @@ Or install it yourself as:
 
 ## Usage
 
+### Instantiating a client
+
+```ruby
+client = Multicolor::REST::Client.new do |client|
+  client.config.company      = "<api-company>"
+  client.config.username     = "<api-username>"
+  client.config.password     = "<password>"
+end
+```
+
 ### Adding or deleting items
 
 ```ruby
@@ -77,7 +87,8 @@ response.body # returns API response
 ```ruby
 
 client.extract_collection_colors
-client.update_metadata
+
+
 client.get_metadata
 ```
 

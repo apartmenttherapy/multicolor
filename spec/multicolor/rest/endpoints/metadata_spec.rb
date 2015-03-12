@@ -40,7 +40,7 @@ describe Multicolor::REST::Endpoints::Filepath do
     it 'makes a get request' do
       expect(subject)
         .to receive(:get)
-        .with(:list)
+        .with(:list, {})
       subject.send(:list)
     end
   end
