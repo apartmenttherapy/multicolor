@@ -14,8 +14,8 @@ module Multicolor
           get(:count)
         end
 
-        def list
-          get(:list)
+        def list(options = {})
+          get(:list, options)
         end
 
         def ping
