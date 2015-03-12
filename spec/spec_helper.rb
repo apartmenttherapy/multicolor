@@ -1,6 +1,7 @@
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
+require 'active_support'
 require 'multicolor'
 
 RSpec.configure do |config|
