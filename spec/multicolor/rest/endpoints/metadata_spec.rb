@@ -9,6 +9,32 @@ describe Multicolor::REST::Endpoints::Filepath do
 
   subject{ TransportMetadataClass.new }
 
+  describe '#count_collection_colors' do
+
+    let(:params) do
+      {
+        count_colors: [ "red", "green", "blue"],
+        colors: [
+          {
+            color: "huh",
+            weight: "20"
+          },
+          {
+            color: "nope",
+            weight: "30"
+          },
+        ]
+      }
+    end
+
+    it 'makes a get request' do
+      expect(subject)
+        .to receive(:get)
+        .with(:count_collection_colors, {})
+      subject.send(:count_collection_colors, {})
+    end
+  end
+
   describe '#get_search_metadata' do
     it 'makes a get request' do
       expect(subject)

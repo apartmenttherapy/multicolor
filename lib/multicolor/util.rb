@@ -37,12 +37,16 @@ module Multicolor
 
       def modify_options_for_keys(options, keys)
         options.symbolize_keys!
-
-        keys.each do |key|
-          to_process = options.delete(key)
-          options.merge!(payload_builder(to_process))
+        subset = options.slice(*keys)
+        subset.each do |key, value|
+          data = {}
+          Array.wrap(value).each do |val|
+            data["#{key.to_s.pluralize}[#{data.keys.length}]"] = val
+          end
+          options.merge!(data)
         end
 
+        keys.each{ |key| options.delete(key) }
         options
       end
     end
