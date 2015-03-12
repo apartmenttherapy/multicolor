@@ -21,7 +21,48 @@ Or install it yourself as:
 
 ## Usage
 
+### Adding items to the collection
 
+```ruby
+client.add
+client.delete
+```
+
+### searching the index
+
+```ruby
+options = {}
+client.color_search(options)
+
+options = {}
+client.extract_image_colors()
+
+options = {}
+client.count_image_colors
+```
+
+### Metadata
+
+GET extract_collection_colors
+GET count_collection_colors
+GET count_metadata
+POST update_metadata
+GET get_metadata
+GET get_search_metadata
+GET get_return_metadata
+
+### Info
+
+```ruby
+# counting items in the collection/index
+client.count
+
+# List the images present in your API.
+client.list
+
+# pinging the API to see if the Piximilar search server is running.
+client.ping
+```
 
 ## Contributing
 
