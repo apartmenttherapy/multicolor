@@ -1,6 +1,9 @@
 # Multicolor
 
-TODO: Write a gem description
+An opinionated library to ease usage of TinEye's fabulous MulticolorEngine
+http://services.tineye.com/MulticolorEngine.
+
+Full API documentation available at http://multicolorengine.tineye.com/docs/
 
 ## Installation
 
@@ -18,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
 
 ## Contributing
 
