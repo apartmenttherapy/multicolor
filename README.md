@@ -50,25 +50,36 @@ client.delete(filepath_string) # pass a single filepath to delete a single image
 ### searching the index
 
 ```ruby
-options = {}
-client.color_search(options)
+# searching for similar colors
+params = {
+  colors: [
+    {
+      color: #rgb or hex
+      width: 1-100
+    }...
+  ],
+  min_score: 0-11
+  offset: integer
+  ...
+}
 
-options = {}
-client.extract_image_colors()
+# Multicolor::REST::SearchBuilder is a convenience method
+# that formats params to format required by
+# the MulticolorEngine, eg: color[0], color[1]....
+search_options = Multicolor::REST::SearchBuilder.new(params).request
 
-options = {}
-client.count_image_colors
+response = client.color_search(search_options)
+response.body # returns API response
 ```
 
 ### Metadata
 
-GET extract_collection_colors
-GET count_collection_colors
-GET count_metadata
-POST update_metadata
-GET get_metadata
-GET get_search_metadata
-GET get_return_metadata
+```ruby
+
+client.extract_collection_colors
+client.update_metadata
+client.get_metadata
+```
 
 ### Info
 
