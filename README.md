@@ -21,11 +21,30 @@ Or install it yourself as:
 
 ## Usage
 
-### Adding items to the collection
+### Adding or deleting items
 
 ```ruby
-client.add
-client.delete
+data = [
+  {
+    url: "http://url-to-image",
+    filepath: "filepath-string",
+    metadata: {
+      ...
+    }
+  },
+  {
+    url: "http://url-to-other-image",
+    filepath: "another-filepath-string",
+    metadata: {
+      ...
+    }
+  },
+]
+
+client.add(data)
+
+client.delete([filepath_string, another_filepath_string] )
+client.delete(filepath_string) # pass a single filepath to delete a single image
 ```
 
 ### searching the index
