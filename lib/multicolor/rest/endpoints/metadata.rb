@@ -10,19 +10,15 @@ module Multicolor
         #   }
         # }
         def count_collection_colors(options)
-          colors = options.delete(:colors)
-          payload = Multicolor::Util.payload_builder(colors)
           keys = [:count_colors, :weights, :filepaths]
-          options = Multicolor::Util::modify_options_for_keys(options, keys)
-          get(:count_collection_colors, options.merge(payload))
+          formatted_options = extract_and_format_options(options, keys)
+          get(:count_collection_colors, formatted_options)
         end
 
         def count_metadata(options)
-          colors = options.delete(:colors)
-          payload = Multicolor::Util.payload_builder(colors)
           keys = [:colors, :count_metadata, :weights, :filepaths]
-          options = Multicolor::Util::modify_options_for_keys(options, keys)
-          get(:count_metadata, options)
+          formatted_options = extract_and_format_options(options, keys)
+          get(:count_metadata, formatted_options)
         end
 
         def get_search_metadata
@@ -43,6 +39,14 @@ module Multicolor
 
         def ping
           get(:ping)
+        end
+
+        private
+
+        def extract_and_format_options(options, keys)
+          payload = Multicolor::Util.payload_builder(options.delete(:colors))
+          options = Multicolor::Util::modify_options_for_keys(options, keys)
+          options.merge(payload)
         end
       end
     end
