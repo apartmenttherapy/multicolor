@@ -19,7 +19,7 @@ Or install it yourself as:
 
     $ gem install multicolor
 
-## Usage
+## Usage Examples
 
 ### Instantiating a client
 
@@ -37,24 +37,24 @@ end
 data = [
   {
     url: "http://url-to-image",
-    filepath: "filepath-string",
+    filepath: "/path/to/image",
     metadata: {
       ...
     }
   },
   {
     url: "http://url-to-other-image",
-    filepath: "another-filepath-string",
+    filepath: "/path/to/another/image",
     metadata: {
       ...
     }
   },
 ]
 
-client.add(data)
+client.add(data) # add the image to the collection
 
-client.delete([filepath_string, another_filepath_string] )
-client.delete(filepath_string) # pass a single filepath to delete a single image
+client.delete(["/path/to/image", another_"/path/to/image"] ) # delete images
+client.delete("/path/to/image") # pass a single filepath to delete a single image
 ```
 
 ### searching the index
@@ -88,13 +88,24 @@ response.body # returns API response
 
 # extract colors for n images identified by filepath
 options = {
-  filepaths: [filepath_string, another_filepath_string]
+  filepaths: ["/path/to/image", "/path/to/another/image"]
   limit: 20
 }
 client.extract_collection_colors(options)
 
 # extract metadata for n images
-client.get_metadata(filepaths: [filepath_string])
+client.get_metadata(filepaths: ["/path/to/image"])
+
+# count collection colors
+
+options = {
+  count_colors: ["233,233,233","23,33,91"]
+  filepaths: ["/path/to/image", "/path/to/other/image"]
+  ...
+}
+
+client.count_collection_colors(options)
+
 ```
 
 ### Info
