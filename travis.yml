@@ -1,0 +1,16 @@
+language: ruby
+
+install:
+  - bundle install --retry=3
+
+addons:
+  code_climate:
+    repo_token: 505f19308a646b9135fc9aa7ca378feab013144baa097f4bb73f300c3b4a697f
+
+rvm:
+  - ruby-head
+  - 2.1
+  - 2.2
+  - 2.0.0
+  - 1.9.3
+  - jruby-19mode
