@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/apartmenttherapy/multicolor/badges/gpa.svg)](https://codeclimate.com/github/apartmenttherapy/multicolor)
+
 # Multicolor
 
 An opinionated library to ease usage of TinEye's fabulous MulticolorEngine
